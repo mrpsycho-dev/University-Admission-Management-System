@@ -38,13 +38,13 @@ int main()
     cout << "You choose " << userOption << endl;
     if (userOption == 1)
     { // Admin condition
-      cout << "This is admin menu";
+      cout << "WELCOME TO UMS ADMIN MENU";
       getch();
     }
     else if (userOption == 2)
     { // Student condition
-      cout << "This is student menu";
-      cout << "Welcome to UMS";
+      system("cls");
+      cout << "WELCOME TO UMS STUDENT MENU\n";
       cout << "Enter your name: ";
       string name;
       cin >> name;
@@ -55,19 +55,33 @@ int main()
       float matric;
       cin >> matric;
       cout << "Enter FSC marks: ";
-      float fsc;
-      cin >> fsc;
+      float inter;
+      cin >> inter;
       cout << "Enter ECAT marks: ";
       float ecat;
       cin >> ecat;
-      cout << "Enter CS, SE, IT as your preferences";
+      cout << "Enter CS, SE, IT as your preferences\n";
       string pref1, pref2, pref3;
+      // while (true)
+      // {
+      // }
       cout << "Enter your 1st preference: ";
       cin >> pref1;
       cout << "Enter your 2nd preference: ";
       cin >> pref2;
       cout << "Enter your 3rd preference: ";
       cin >> pref3;
+
+      namesArr[index] = name;
+      ageArr[index] = age;
+      matricArr[index] = matric;
+      interArr[index] = inter;
+      ecatArr[index] = ecat;
+      pref1Arr[index] = pref1;
+      pref2Arr[index] = pref2;
+      pref3Arr[index] = pref3;
+      index++;
+      cout << "Your data has been saved.";
 
       getch();
     }
@@ -80,5 +94,5 @@ int main()
     {
       cout << "Invalid option. Please try again.";
     }
-  }
+  } // end of our main while loop
 }
