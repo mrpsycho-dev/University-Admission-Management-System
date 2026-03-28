@@ -53,11 +53,56 @@ int main()
 
         if (username == "admin" && password == "123")
         {
-          cout << "Login Successful! \n";
+          cout << "Login Successful !!";
 
-          cout << "Press any key to continue...";
-          getch();
-          break;
+          while (true)
+          {
+            system("cls");
+            cout << R"(
+          1.  Show All Students
+          2.  Search Student
+          3.  Update Student Record
+          4.  Generate Merit List
+          5.  Exit
+              Choose the option:  
+          )";
+
+            int adminOption;
+            cin >> adminOption;
+            if (adminOption == 1)
+            {
+              // show all students
+              cout << "Name\tAge\tMatric\tFSC\tECAT\tP1\tP2\tP3\n";
+              for (int i = 0; i < index; i++)
+              {
+                cout << namesArr[i] << "\t" << ageArr[i] << "\t"
+                     << matricArr[i] << "\t" << interArr[i] << "\t" << ecatArr[i] << "\t" << pref1Arr[i] << "\t" << pref2Arr[i] << "\t" << pref3Arr[i] << "\t\n";
+              }
+            }
+            else if (adminOption == 2)
+            {
+              // search students by name
+            }
+            else if (adminOption == 3)
+            {
+              // update student record
+            }
+            else if (adminOption == 4)
+            {
+              // generate merit list
+            }
+            else if (adminOption == 5)
+            {
+              // exit
+            }
+            else
+            {
+              cout << "Invalid Option.";
+            }
+            cout << "Press any key to continue...";
+            getch();
+            // break;
+          }
         }
         else
         {
@@ -107,7 +152,7 @@ int main()
       pref2Arr[index] = pref2;
       pref3Arr[index] = pref3;
       index++;
-      cout << "Your data has been saved.";
+      cout << "Your data has been saved.\n";
 
       cout << "Press any key to continue...";
       getch();
