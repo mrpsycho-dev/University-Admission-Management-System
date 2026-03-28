@@ -8,6 +8,7 @@ int main()
 
   int totalStudents = 1000;
   int index = 0;
+  int loginAttempt = 0;
 
   // Data structures
   string namesArr[totalStudents];
@@ -38,7 +39,32 @@ int main()
     cout << "You choose " << userOption << endl;
     if (userOption == 1)
     { // Admin condition
-      cout << "WELCOME TO UMS ADMIN MENU";
+      for (int i = 0; i < 3; i++)
+      {
+        system("cls");
+        cout << "WELCOME TO UMS ADMIN MENU\n";
+        cout << "Login Attempt "
+             << i + 1 << endl;
+        string username, password;
+        cout << "Enter username: ";
+        cin >> username;
+        cout << "Enter username: ";
+        cin >> password;
+
+        if (username == "admin" && password == "123")
+        {
+          cout << "Login Successful! \n";
+
+          cout << "Press any key to continue...";
+          getch();
+          break;
+        }
+        else
+        {
+          cout << "Username or Password is incorrect! \n";
+        }
+      }
+      cout << "Press any key to continue...";
       getch();
     }
     else if (userOption == 2)
@@ -83,6 +109,7 @@ int main()
       index++;
       cout << "Your data has been saved.";
 
+      cout << "Press any key to continue...";
       getch();
     }
     else if (userOption == 3)
