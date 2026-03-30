@@ -63,7 +63,8 @@ int main()
           2.  Search Student
           3.  Update Student Record
           4.  Generate Merit List
-          5.  Logout
+          5.  Delete Student Record
+          6.  Logout
               Choose the option:  
           )";
 
@@ -171,8 +172,27 @@ int main()
             else if (adminOption == 4)
             {
               // generate merit list
+              for (int i = 0; i < index; i++)
+              {
+                float aggregate = (matricArr[i] / 1200 * 100 * 0.17) + (interArr[i] / 1200 * 100 * .33) + (ecatArr[i] / 400 * 100 * .50);
+                aggregateArr[i] = aggregate;
+              }
+              // code to disp all data with aggregate
+              cout << "Name\tAge\tAggregate";
+              for (int i = 0; i < index; i++)
+              {
+                if (namesArr[i] != "")
+                {
+                  cout << namesArr[i] << "\t" << ageArr[i] << "\t" << aggregateArr[i];
+                }
+              }
+              // code to disp sorted data
             }
             else if (adminOption == 5)
+            {
+              // delete student record
+            }
+            else if (adminOption == 6)
             {
               // exit
               break;
