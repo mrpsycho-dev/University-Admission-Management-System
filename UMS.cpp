@@ -179,19 +179,49 @@ int main()
                 aggregateArr[i] = aggregate;
               }
               // code to disp all data with aggregate
-              cout << "Name\tAge\tAggregate";
+              cout << "Name\tAge\tAggregate\n";
               for (int i = 0; i < index; i++)
               {
-                if (namesArr[i] != "")
-                {
-                  cout << namesArr[i] << "\t" << ageArr[i] << "\t" << aggregateArr[i];
-                }
+                cout << namesArr[i] << "\t" << ageArr[i] << "\t" << aggregateArr[i];
               }
               // code to disp sorted data
             }
             else if (adminOption == 5)
             {
               // delete student record
+              cout << "Enter name to delete: ";
+              string name;
+              cin >> name;
+
+              bool found = false;
+
+              for (int i = 0; i < index; i++)
+              {
+                if (namesArr[i] == name)
+                {
+                  for (int j = i; j < index - 1; j++)
+                  {
+                    namesArr[j] = namesArr[j + 1];
+                    ageArr[j] = ageArr[j + 1];
+                    matricArr[j] = matricArr[j + 1];
+                    interArr[j] = interArr[j + 1];
+                    ecatArr[j] = ecatArr[j + 1];
+                    pref1Arr[j] = pref1Arr[j + 1];
+                    pref2Arr[j] = pref2Arr[j + 1];
+                    pref3Arr[j] = pref3Arr[j + 1];
+                  }
+
+                  index--;
+                  cout << "Record deleted!";
+                  found = true;
+                  break;
+                }
+              }
+
+              if (!found)
+              {
+                cout << "Record not found.";
+              }
             }
             else if (adminOption == 6)
             {
