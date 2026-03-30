@@ -7,16 +7,19 @@ int main()
 {
 
   int totalStudents = 1000;
-  int index = 2;
+  int index = 7;
   int loginAttempt = 0;
 
   // Data structures
-  string namesArr[totalStudents] = {"ali", "ammar"};
-  string pref1Arr[totalStudents] = {"CS", "CS"};
-  string pref2Arr[totalStudents] = {"SE", "IT"};
-  string pref3Arr[totalStudents] = {"IT", "SE"};
-  int ageArr[totalStudents] = {19, 20};
-  float matricArr[totalStudents] = {1090, 1119}, interArr[totalStudents] = {1119, 1110}, ecatArr[totalStudents] = {290, 320}, aggregateArr[totalStudents];
+  string namesArr[totalStudents] = {"ali", "ammar", "ahmed", "usman", "zain", "hassan", "bilal"};
+  string pref1Arr[totalStudents] = {"CS", "CS", "SE", "IT", "CS", "SE", "IT"};
+  string pref2Arr[totalStudents] = {"SE", "IT", "CS", "SE", "IT", "CS", "SE"};
+  string pref3Arr[totalStudents] = {"IT", "SE", "IT", "CS", "SE", "IT", "CS"};
+  int ageArr[totalStudents] = {19, 20, 18, 21, 19, 20, 22};
+  float matricArr[totalStudents] = {1090, 1119, 1050, 1000, 1080, 990, 1020};
+  float interArr[totalStudents] = {1119, 1110, 1000, 980, 1090, 970, 1010};
+  float ecatArr[totalStudents] = {290, 320, 250, 240, 300, 230, 260};
+  float aggregateArr[totalStudents];
 
   while (true)
   {
@@ -48,7 +51,7 @@ int main()
         string username, password;
         cout << "Enter username: ";
         cin >> username;
-        cout << "Enter username: ";
+        cout << "Enter password: ";
         cin >> password;
 
         if (username == "admin" && password == "123")
@@ -87,9 +90,9 @@ int main()
               string name;
               cin >> name;
               bool found = false;
+              cout << "Name\tAge\tMatric\tFSC\tECAT\tP1\tP2\tP3\n";
               for (int i = 0; i < index; i++)
               {
-                cout << "Name\tAge\tMatric\tFSC\tECAT\tP1\tP2\tP3\n";
                 if (namesArr[i] == name)
                 {
                   cout << namesArr[i] << "\t" << ageArr[i] << "\t"
@@ -109,10 +112,10 @@ int main()
               string name;
               cin >> name;
               bool found = false;
+              cout << "------------Old record: ------------";
+              cout << "Name\tAge\tMatric\tFSC\tECAT\tP1\tP2\tP3\n";
               for (int i = 0; i < index; i++)
               {
-                cout << "------------Old record: ------------";
-                cout << "Name\tAge\tMatric\tFSC\tECAT\tP1\tP2\tP3\n";
                 if (namesArr[i] == name)
                 {
                   cout << namesArr[i] << "\t" << ageArr[i] << "\t"
@@ -122,49 +125,47 @@ int main()
               }
               if (found)
               {
-                cout << "Enter new record of the student: ";
-                cout << "Enter your name: ";
-                string name;
-                cin >> name;
-                cout << "Enter age: ";
-                int age;
-                cin >> age;
-                cout << "Enter Matric marks: ";
-                float matric;
-                cin >> matric;
-                cout << "Enter FSC marks: ";
-                float inter;
-                cin >> inter;
-                cout << "Enter ECAT marks: ";
-                float ecat;
-                cin >> ecat;
-                cout << "Enter CS, SE, IT as your preferences\n";
-                string pref1, pref2, pref3;
-                // while (true)
-                // {
-                // }
-                cout << "Enter your 1st preference: ";
-                cin >> pref1;
-                cout << "Enter your 2nd preference: ";
-                cin >> pref2;
-                cout << "Enter your 3rd preference: ";
-                cin >> pref3;
+                for (int i = 0; i < index; i++)
+                {
+                  if (namesArr[i] == name)
+                  {
+                    cout << "Enter new record of the student:\n";
 
-                namesArr[index] = name;
-                ageArr[index] = age;
-                matricArr[index] = matric;
-                interArr[index] = inter;
-                ecatArr[index] = ecat;
-                pref1Arr[index] = pref1;
-                pref2Arr[index] = pref2;
-                pref3Arr[index] = pref3;
-                // index++;
-                cout << "Your data has been saved.\n";
+                    cout << "Enter your name: ";
+                    cin >> namesArr[i];
+
+                    cout << "Enter age: ";
+                    cin >> ageArr[i];
+
+                    cout << "Enter Matric marks: ";
+                    cin >> matricArr[i];
+
+                    cout << "Enter FSC marks: ";
+                    cin >> interArr[i];
+
+                    cout << "Enter ECAT marks: ";
+                    cin >> ecatArr[i];
+
+                    cout << "Enter CS, SE, IT as your preferences\n";
+
+                    cout << "Enter your 1st preference: ";
+                    cin >> pref1Arr[i];
+
+                    cout << "Enter your 2nd preference: ";
+                    cin >> pref2Arr[i];
+
+                    cout << "Enter your 3rd preference: ";
+                    cin >> pref3Arr[i];
+
+                    cout << "Record updated successfully!\n";
+                    break;
+                  }
+                }
 
                 cout << "Press any key to continue...";
                 getch();
               }
-              else if (!found)
+              else
               {
                 cout << "Record not found.";
               }
