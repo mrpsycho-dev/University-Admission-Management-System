@@ -82,6 +82,24 @@ int main()
             else if (adminOption == 2)
             {
               // search students by name
+              cout << "Enter the name you want to search: ";
+              string name;
+              cin >> name;
+              bool found = false;
+              for (int i = 0; i < index; i++)
+              {
+                cout << "Name\tAge\tMatric\tFSC\tECAT\tP1\tP2\tP3\n";
+                if (namesArr[i] == name)
+                {
+                  cout << namesArr[i] << "\t" << ageArr[i] << "\t"
+                       << matricArr[i] << "\t" << interArr[i] << "\t" << ecatArr[i] << "\t" << pref1Arr[i] << "\t" << pref2Arr[i] << "\t" << pref3Arr[i] << "\t\n";
+                  found = true;
+                }
+              }
+              if (!found)
+              {
+                cout << "Record not found.";
+              }
             }
             else if (adminOption == 3)
             {
