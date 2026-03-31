@@ -42,6 +42,7 @@ int main()
     cout << "You choose " << userOption << endl;
     if (userOption == 1)
     { // Admin condition
+
       for (int i = 0; i < 3; i++)
       {
         system("cls");
@@ -56,6 +57,7 @@ int main()
 
         if (username == "admin" && password == "123")
         {
+
           cout << "Login Successful !!";
 
           while (true)
@@ -178,13 +180,130 @@ int main()
                 float aggregate = (matricArr[i] / 1200 * 100 * 0.17) + (interArr[i] / 1200 * 100 * .33) + (ecatArr[i] / 400 * 100 * .50);
                 aggregateArr[i] = aggregate;
               }
+              // sorting of aggregates
+              for (int i = 0; i < index; i++)
+              {
+                for (int j = i + 1; j < index; j++)
+                {
+                  if (aggregateArr[i] < aggregateArr[j])
+                  {
+                    // swap aggregate
+                    float temp = aggregateArr[i];
+                    aggregateArr[i] = aggregateArr[j];
+                    aggregateArr[j] = temp;
+
+                    // swap name
+                    string t1 = namesArr[i];
+                    namesArr[i] = namesArr[j];
+                    namesArr[j] = t1;
+
+                    // swap age
+                    int t2 = ageArr[i];
+                    ageArr[i] = ageArr[j];
+                    ageArr[j] = t2;
+
+                    // swap matric
+                    float t3 = matricArr[i];
+                    matricArr[i] = matricArr[j];
+                    matricArr[j] = t3;
+
+                    // swap inter
+                    float t4 = interArr[i];
+                    interArr[i] = interArr[j];
+                    interArr[j] = t4;
+
+                    // swap ecat
+                    float t5 = ecatArr[i];
+                    ecatArr[i] = ecatArr[j];
+                    ecatArr[j] = t5;
+
+                    // swap pref1
+                    string t6 = pref1Arr[i];
+                    pref1Arr[i] = pref1Arr[j];
+                    pref1Arr[j] = t6;
+
+                    // swap pref2
+                    string t7 = pref2Arr[i];
+                    pref2Arr[i] = pref2Arr[j];
+                    pref2Arr[j] = t7;
+
+                    // swap pref3
+                    string t8 = pref3Arr[i];
+                    pref3Arr[i] = pref3Arr[j];
+                    pref3Arr[j] = t8;
+                  }
+                }
+              }
+
               // code to disp all data with aggregate
               cout << "Name\tAge\tAggregate\n";
               for (int i = 0; i < index; i++)
               {
-                cout << namesArr[i] << "\t" << ageArr[i] << "\t" << aggregateArr[i];
+                cout << namesArr[i] << "\t" << ageArr[i] << "\t" << aggregateArr[i] << endl;
               }
               // code to disp sorted data
+              cout << "\nAdmitted students:\n";
+              cout << "1 seat for CS, 2 for SE, 1 for IT\n";
+
+              int cs = 0, se = 0, it = 0;
+
+              for (int i = 0; i < index; i++)
+              {
+                // Preference 1
+                if (pref1Arr[i] == "CS" && cs < 1)
+                {
+                  cout << namesArr[i] << " -> CS\n";
+                  cs++;
+                }
+                else if (pref1Arr[i] == "SE" && se < 2)
+                {
+                  cout << namesArr[i] << " -> SE\n";
+                  se++;
+                }
+                else if (pref1Arr[i] == "IT" && it < 1)
+                {
+                  cout << namesArr[i] << " -> IT\n";
+                  it++;
+                }
+
+                // Preference 2
+                else if (pref2Arr[i] == "CS" && cs < 1)
+                {
+                  cout << namesArr[i] << " -> CS\n";
+                  cs++;
+                }
+                else if (pref2Arr[i] == "SE" && se < 2)
+                {
+                  cout << namesArr[i] << " -> SE\n";
+                  se++;
+                }
+                else if (pref2Arr[i] == "IT" && it < 1)
+                {
+                  cout << namesArr[i] << " -> IT\n";
+                  it++;
+                }
+
+                // Preference 3
+                else if (pref3Arr[i] == "CS" && cs < 1)
+                {
+                  cout << namesArr[i] << " -> CS\n";
+                  cs++;
+                }
+                else if (pref3Arr[i] == "SE" && se < 2)
+                {
+                  cout << namesArr[i] << " -> SE\n";
+                  se++;
+                }
+                else if (pref3Arr[i] == "IT" && it < 1)
+                {
+                  cout << namesArr[i] << " -> IT\n";
+                  it++;
+                }
+                else
+                {
+                  cout << namesArr[i] << " -> Not admitted\n";
+                }
+              }
             }
             else if (adminOption == 5)
             {
@@ -236,6 +355,7 @@ int main()
             getch();
             // break;
           }
+          break; // fix for exiting admin login attempt after logout
         }
         else
         {
