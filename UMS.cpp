@@ -114,7 +114,7 @@ int main()
               string name;
               cin >> name;
               bool found = false;
-              cout << "------------Old record: ------------";
+              cout << "------------Old record: ------------\n";
               cout << "Name\tAge\tMatric\tFSC\tECAT\tP1\tP2\tP3\n";
               for (int i = 0; i < index; i++)
               {
